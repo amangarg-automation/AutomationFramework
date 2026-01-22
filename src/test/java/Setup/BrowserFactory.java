@@ -26,6 +26,7 @@ public class BrowserFactory {
                     chromeOptions.addArguments("--incognito");
                     chromeOptions.addArguments("--disable-notifications");
                     chromeOptions.addArguments("--start-maximized");
+                    chromeOptions.addArguments("--headless");
                     driver.set(new ChromeDriver(chromeOptions));  // Store the ChromeDriver instance in ThreadLocal
                     break;
 
@@ -33,6 +34,7 @@ public class BrowserFactory {
                     WebDriverManager.edgedriver().setup();  // Automatically manage EdgeDriver
                     EdgeOptions edgeOptions = new EdgeOptions();
                     edgeOptions.addArguments("--incognito");
+                    edgeOptions.addArguments("--headless");
                     edgeOptions.addArguments("--disable-notifications");
                     edgeOptions.addArguments("--start-maximized");
                     driver.set(new EdgeDriver(edgeOptions));  // Store the EdgeDriver instance in ThreadLocal
@@ -42,6 +44,7 @@ public class BrowserFactory {
                   //Automatically manage FirefoxDriver
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.addArguments("-private");
+                    firefoxOptions.addArguments("--headless");
                     firefoxOptions.addArguments("--disable-notifications");
                     driver.set(new FirefoxDriver(firefoxOptions));
                     driver.get().manage().window().maximize();// Store the FirefoxDriver instance in ThreadLocal
